@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Hospital Management - Register</title>
+    <style>
+      /* ===========================================
+   GOOGLE FONT
+=========================================== */
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+
+        overflow: hidden;
+      }
+
+      /* ===========================================
+   MAIN PAGE
+=========================================== */
+
+      .register-page {
+        display: flex;
+
+        height: 100vh;
+
+        width: 100%;
+      }
+
+      /* ===========================================
+   LEFT SECTION
+=========================================== */
+
+      .register-left {
+        width: 50%;
+
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("../images/hospital.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        color: white;
+      }
+
+      .overlay {
+        text-align: center;
+
+        padding: 40px;
+      }
+
+      .overlay h1 {
+        font-size: 42px;
+
+        font-weight: 700;
+
+        margin-bottom: 20px;
+      }
+
+      .overlay h1 i {
+        margin-right: 10px;
+      }
+
+      .overlay p {
+        font-size: 18px;
+
+        line-height: 1.8;
+      }
+
+      .overlay img {
+        margin-top: 40px;
+
+        width: 80%;
+
+        height: 300px;
+
+        object-fit: cover;
+
+        border-radius: 25px;
+      }
+
+      /* ===========================================
+   RIGHT SECTION
+=========================================== */
+
+      .register-right {
+        width: 50%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        background: #f5f7fb;
+      }
+
+      .register-card {
+        width: 480px;
+
+        background: white;
+
+        padding: 40px;
+
+        border-radius: 25px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .register-card h2 {
+        text-align: center;
+
+        color: #0d6efd;
+
+        font-size: 32px;
+
+        font-weight: 700;
+
+        margin-bottom: 30px;
+      }
+
+      /* ===========================================
+   INPUT DESIGN
+=========================================== */
+
+      .input-group-text {
+        background: #0d6efd;
+
+        color: white;
+
+        border: none;
+      }
+
+      .form-control,
+      .form-select {
+        height: 50px;
+
+        border-radius: 0 10px 10px 0;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #0d6efd;
+
+        box-shadow: 0 0 10px rgba(13, 110, 253, 0.2);
+      }
+
+      /* ===========================================
+   BUTTON
+=========================================== */
+
+      .btn-primary {
+        height: 50px;
+
+        border-radius: 10px;
+
+        font-size: 18px;
+
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+      }
+
+      .register-card a {
+        text-decoration: none;
+
+        color: #0d6efd;
+
+        font-weight: 600;
+      }
+
+      /* ===========================================
+   RESPONSIVE
+=========================================== */
+
+      @media (max-width: 992px) {
+        .register-left {
+          display: none;
+        }
+
+        .register-right {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .register-card {
+          width: 90%;
+
+          padding: 25px;
+        }
+
+        .overlay h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="register-page">
+      <!-- LEFT SECTION -->
+
+      <div class="register-left">
+        <div class="overlay">
+          <h1>
+            <i class="fa-solid fa-hospital"></i>
+
+            Hospital Management System
+          </h1>
+
+          <p>Create your account and manage hospital operations efficiently.</p>
+
+          <img src="./assests/images.jpg" alt="Hospital Image" />
+        </div>
+      </div>
+
+      <!-- RIGHT SECTION -->
+
+      <div class="register-right">
+        <div class="register-card">
+          <h2>Create Account</h2>
+
+          <form id="registerForm">
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-user"></i>
+              </span>
+
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+
+              <input
+                type="text"
+                id="mobile"
+                class="form-control"
+                placeholder="Mobile Number"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-user-tag"></i>
+              </span>
+
+              <select id="role" class="form-select">
+                <option>Select Role</option>
+
+                <option>Admin</option>
+
+                <option>Doctor</option>
+
+                <option>Receptionist</option>
+              </select>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                class="form-control"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="terms" />
+
+              <label class="form-check-label">
+                I agree to Terms & Conditions
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fa-solid fa-user-plus"></i>
+
+              Register
+            </button>
+
+            <hr />
+
+            <p class="text-center">
+              Already have an account?
+
+              <a href="login.html"> Login </a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ==========================================
+      // Hospital Management System
+      // Registration Module
+      // ==========================================
+
+      console.log("Register Module Loaded");
+
+      // ==========================================
+      // REGISTER FORM
+      // ==========================================
+
+      const registerForm = document.getElementById("registerForm");
+
+      registerForm.addEventListener(
+        "submit",
+
+        function (e) {
+          e.preventDefault();
+
+          registerUser();
+        },
+      );
+
+      // ==========================================
+      // REGISTER USER
+      // ==========================================
+
+      function registerUser() {
+        let name = document.getElementById("name").value;
+
+        let email = document.getElementById("email").value;
+
+        let mobile = document.getElementById("mobile").value;
+
+        let role = document.getElementById("role").value;
+
+        let password = document.getElementById("password").value;
+
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        let terms = document.getElementById("terms").checked;
+
+        // VALIDATION
+
+        if (role === "Select Role") {
+          alert("Please select role");
+
+          return;
+        }
+
+        if (!terms) {
+          alert("Please accept Terms & Conditions");
+
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          alert("Password does not match");
+
+          return;
+        }
+
+        if (password.length < 6) {
+          alert("Password should contain minimum 6 characters");
+
+          return;
+        }
+
+        // USER OBJECT
+
+        let user = {
+          name: name,
+
+          email: email,
+
+          mobile: mobile,
+
+          role: role,
+
+          password: password,
+        };
+
+        // SAVE USER
+
+        localStorage.setItem(
+          "registeredUser",
+
+          JSON.stringify(user),
+        );
+
+        alert("Registration Successful");
+
+        window.location.href = "login.html";
+      }
+
+      // ==========================================
+      // API READY FOR SPRING BOOT
+      // ==========================================
+
+      async function registerAPI() {
+        /*
+
+Future Backend API
+
+
+fetch(
+"http://localhost:8080/api/auth/register",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(user)
+}
+)
+
+
+*/
+
+        console.log("Register API Ready");
+      }
+    </script>
+  </body>
+</html>

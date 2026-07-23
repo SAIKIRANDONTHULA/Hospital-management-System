@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hospital HMS - Profile</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+
+}
+
+
+
+body{
+
+background:#f4f7fc;
+
+overflow-x:hidden;
+
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:260px;
+
+height:100vh;
+
+background:#0d6efd;
+
+padding:25px 20px;
+
+color:white;
+
+z-index:1000;
+
+}
+
+
+
+.logo{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+
+.logo i{
+
+font-size:45px;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+
+.sidebar a{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+color:white;
+
+text-decoration:none;
+
+padding:14px 18px;
+
+border-radius:12px;
+
+margin-bottom:12px;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+
+
+.sidebar a:hover,
+.sidebar a.active{
+
+background:white;
+
+color:#0d6efd;
+
+}
+
+
+
+
+
+/* MAIN AREA */
+
+
+.main{
+
+
+margin-left:260px;
+
+min-height:100vh;
+
+padding-bottom:20px;
+
+
+}
+
+
+
+
+
+
+/* NAVBAR */
+
+
+.navbar-custom{
+
+
+height:75px;
+
+background:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 35px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.navbar-custom h2{
+
+color:#0d6efd;
+
+font-weight:700;
+
+}
+
+
+
+
+
+/* CARD */
+
+
+.card{
+
+
+border:none;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+padding:20px;
+
+}
+
+
+
+
+/* PROFILE IMAGE */
+
+
+.profile-image{
+
+
+height:150px;
+
+width:150px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid #0d6efd;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.profile-card{
+
+
+min-height:350px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+
+
+
+label{
+
+
+font-weight:600;
+
+margin-bottom:7px;
+
+
+}
+
+
+
+
+
+.form-control,
+.form-select{
+
+
+height:48px;
+
+border-radius:12px;
+
+
+}
+
+
+
+
+textarea.form-control{
+
+
+height:auto;
+
+
+}
+
+
+
+
+
+
+
+
+/* STATISTICS */
+
+
+.stat{
+
+
+height:150px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:20px;
+
+color:white;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+transition:.3s;
+
+
+}
+
+
+
+.stat:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+.stat h2{
+
+
+font-size:35px;
+
+font-weight:700;
+
+
+}
+
+
+
+
+
+
+/* ACTIVITY */
+
+
+.activity{
+
+
+background:#f8f9fa;
+
+padding:18px;
+
+border-radius:15px;
+
+margin-top:15px;
+
+font-weight:500;
+
+transition:.3s;
+
+
+}
+
+
+
+.activity:hover{
+
+
+background:#eaf2ff;
+
+transform:translateX(10px);
+
+
+}
+
+
+
+.activity i{
+
+
+color:#0d6efd;
+
+margin-right:15px;
+
+
+}
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+
+footer{
+
+
+background:#0d6efd;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+margin-left:260px;
+
+font-weight:500;
+
+
+}
+
+
+
+
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:992px){
+
+
+
+.sidebar{
+
+position:absolute;
+
+left:-260px;
+
+}
+
+
+
+.main{
+
+margin-left:0;
+
+}
+
+
+
+footer{
+
+margin-left:0;
+
+}
+
+
+
+}
+
+
+
+
+</style>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- SIDEBAR -->
+
+
+<div class="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-hospital"></i>
+
+<h3>Hospital HMS</h3>
+
+</div>
+
+
+
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+
+
+<a href="patients.html">
+
+<i class="fa-solid fa-users"></i>
+
+Patients
+
+</a>
+
+
+
+
+<a href="doctors.html">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+Doctors
+
+</a>
+
+
+
+
+<a href="appointments.html">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+Appointments
+
+</a>
+
+
+
+
+<a href="billing.html">
+
+<i class="fa-solid fa-file-invoice-dollar"></i>
+
+Billing
+
+</a>
+
+
+
+
+
+<a href="profile.html" class="active">
+
+<i class="fa-solid fa-user-circle"></i>
+
+Profile
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- MAIN CONTENT -->
+
+
+<div class="main">
+
+
+
+
+
+<!-- NAVBAR -->
+
+
+<div class="navbar-custom">
+
+
+<h2>
+
+My Profile
+
+</h2>
+
+
+<button id="logout" class="btn btn-danger">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="container-fluid mt-4">
+
+
+<div class="row g-4">
+
+
+
+
+
+<!-- PROFILE CARD -->
+
+
+<div class="col-lg-4">
+
+
+<div class="card profile-card text-center p-4">
+
+
+<img 
+id="profileImage"
+src="./assests/WhatsApp Image 2026-07-15 at 9.34.19 PM.jpeg"
+class="profile-image">
+
+
+<h3 id="userName">
+
+Admin User
+
+</h3>
+
+
+<p class="text-muted">
+
+Hospital Administrator
+
+</p>
+
+
+
+
+<button id="changePhoto"
+class="btn btn-primary">
+
+
+<i class="fa-solid fa-camera"></i>
+
+Change Photo
+
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- PROFILE FORM -->
+
+
+<div class="col-lg-8">
+
+
+<div class="card p-4">
+
+
+<h3 class="text-primary mb-4">
+
+Personal Information
+
+</h3>
+
+
+
+
+<form id="profileForm">
+
+
+<div class="row">
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+
+Full Name
+
+</label>
+
+
+<input
+
+type="text"
+
+id="fullName"
+
+class="form-control"
+
+value="Admin User">
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+
+Email
+
+</label>
+
+
+<input
+
+type="email"
+
+id="email"
+
+class="form-control"
+
+value="admin@gmail.com">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+
+Mobile
+
+</label>
+
+
+<input
+
+type="text"
+
+id="mobile"
+
+class="form-control"
+
+value="9876543210">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+
+Role
+
+</label>
+
+
+<select id="role" class="form-select">
+
+
+<option>Hospital Administrator</option>
+
+<option>Doctor</option>
+
+<option>Receptionist</option>
+
+<option>Accountant</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-6 mb-3">
+
+
+<label>
+
+Department
+
+</label>
+
+
+<select id="profileDepartment" class="form-select">
+
+
+<option>Administration</option>
+
+<option>Cardiology</option>
+
+<option>Neurology</option>
+
+<option>Billing</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-12 mb-3">
+
+
+<label>
+
+Address
+
+</label>
+
+
+<textarea
+
+id="address"
+
+class="form-control"
+
+rows="3">
+
+Hyderabad Telangana
+
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-12 text-center">
+
+
+<button class="btn btn-primary px-5">
+
+<i class="fa-solid fa-save"></i>
+
+Update Profile
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- STATISTICS -->
+
+
+<div class="row mt-5 g-4">
+
+
+
+<div class="col-md-3">
+
+<div class="stat bg-primary">
+
+
+<h2>500</h2>
+
+<p>Patients</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<div class="stat bg-success">
+
+
+<h2>50</h2>
+
+<p>Doctors</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="stat bg-warning">
+
+
+<h2>120</h2>
+
+<p>Appointments</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="stat bg-danger">
+
+
+<h2>₹5L</h2>
+
+<p>Revenue</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ACTIVITY -->
+
+
+<div class="card p-4 mt-5">
+
+
+<h3 class="text-primary">
+
+Recent Activity
+
+</h3>
+
+
+
+<div class="activity">
+
+<i class="fa fa-user-plus"></i>
+
+New patient registered Rahul Sharma
+
+</div>
+
+
+
+
+<div class="activity">
+
+<i class="fa fa-calendar"></i>
+
+Appointment booked with SAIKIRAN
+
+</div>
+
+
+
+
+<div class="activity">
+
+<i class="fa fa-file-invoice"></i>
+
+Invoice generated successfully
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 Hospital Management System
+
+</footer>
+
+
+
+
+<script >
+    // ==========================================
+// HOSPITAL MANAGEMENT SYSTEM
+// PROFILE MODULE JS
+// ==========================================
+
+
+console.log("Profile JS Loaded");
+
+
+
+// ===============================
+// GET ELEMENTS
+// ===============================
+
+
+const profileForm = document.getElementById("profileForm");
+
+
+const userName = document.getElementById("userName");
+
+const profileImage = document.getElementById("profileImage");
+
+const changePhoto = document.getElementById("changePhoto");
+
+const logout = document.getElementById("logout");
+
+
+
+
+
+
+// ===============================
+// PAGE LOAD
+// ===============================
+
+
+window.onload = function(){
+
+    loadProfile();
+
+    loadProfileImage();
+
+};
+
+
+
+
+
+
+
+
+// ===============================
+// UPDATE PROFILE
+// ===============================
+
+
+profileForm.addEventListener("submit",function(e){
+
+
+    e.preventDefault();
+
+
+
+    let profile = {
+
+
+        name:
+        document.getElementById("fullName").value,
+
+
+        email:
+        document.getElementById("email").value,
+
+
+        mobile:
+        document.getElementById("mobile").value,
+
+
+        role:
+        document.getElementById("role").value,
+
+
+        department:
+        document.getElementById("profileDepartment").value,
+
+
+        address:
+        document.getElementById("address").value
+
+
+
+    };
+
+
+
+
+
+    // MOBILE VALIDATION
+
+
+    if(profile.mobile.length !== 10){
+
+
+        alert("Enter valid mobile number");
+
+        return;
+
+    }
+
+
+
+
+
+
+    localStorage.setItem(
+
+        "profileData",
+
+        JSON.stringify(profile)
+
+    );
+
+
+
+
+    displayProfile(profile);
+
+
+
+    alert("Profile Updated Successfully");
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// ===============================
+// DISPLAY PROFILE
+// ===============================
+
+
+function displayProfile(profile){
+
+
+
+document.getElementById("fullName").value =
+profile.name;
+
+
+
+document.getElementById("email").value =
+profile.email;
+
+
+
+document.getElementById("mobile").value =
+profile.mobile;
+
+
+
+document.getElementById("role").value =
+profile.role;
+
+
+
+document.getElementById("profileDepartment").value =
+profile.department;
+
+
+
+document.getElementById("address").value =
+profile.address;
+
+
+
+
+userName.innerHTML =
+profile.name;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// LOAD PROFILE
+// ===============================
+
+
+function loadProfile(){
+
+
+
+let data =
+localStorage.getItem("profileData");
+
+
+
+if(data){
+
+
+let profile =
+JSON.parse(data);
+
+
+displayProfile(profile);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// CHANGE PROFILE IMAGE
+// ===============================
+
+
+changePhoto.addEventListener("click",function(){
+
+
+
+let imageURL =
+prompt("Enter Image URL");
+
+
+
+
+if(imageURL){
+
+
+
+profileImage.src=imageURL;
+
+
+
+localStorage.setItem(
+
+"profileImage",
+
+imageURL
+
+);
+
+
+
+alert("Profile Image Updated");
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// LOAD IMAGE
+// ===============================
+
+
+function loadProfileImage(){
+
+
+
+let image =
+localStorage.getItem("profileImage");
+
+
+
+if(image){
+
+
+profileImage.src=image;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// LOGOUT
+// ===============================
+
+
+logout.addEventListener("click",function(){
+
+
+
+let result =
+confirm(
+
+"Are you sure you want to logout?"
+
+);
+
+
+
+if(result){
+
+
+
+// remove only login session
+
+sessionStorage.removeItem("loggedUser");
+
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// ===============================
+// ACTIVE MENU
+// ===============================
+
+
+let currentPage =
+window.location.pathname.split("/").pop();
+
+
+
+let links =
+document.querySelectorAll(".sidebar a");
+
+
+
+links.forEach(function(link){
+
+
+
+if(link.getAttribute("href") === currentPage){
+
+
+link.classList.add("active");
+
+
+}
+
+
+
+});
+
+
+
+
+
+console.log("Profile Module Ready");
+</script>
+
+
+</body>
+
+
+</html>

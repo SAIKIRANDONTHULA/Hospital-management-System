@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Doctors Management</title>
+    <style>
+        
+/* ===========================================
+   GOOGLE FONT
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ===========================================
+   GLOBAL STYLE
+=========================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+body{
+
+    background:#f4f7fc;
+    overflow-x:hidden;
+
+}
+
+
+/* ===========================================
+   SIDEBAR
+=========================================== */
+
+.sidebar{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:260px;
+    height:100vh;
+
+    background:#0d6efd;
+    color:white;
+
+    padding:20px;
+
+    z-index:1000;
+
+}
+
+
+.logo{
+
+    text-align:center;
+    margin-bottom:35px;
+
+}
+
+
+.logo i{
+
+    font-size:45px;
+    margin-bottom:15px;
+
+}
+
+
+.logo h3{
+
+    font-weight:700;
+
+}
+
+
+
+.sidebar ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+
+
+.sidebar ul li{
+
+    margin-bottom:12px;
+
+}
+
+
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px 18px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+
+.sidebar ul li a:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+
+
+.sidebar ul li.active a{
+
+    background:white;
+
+    color:#0d6efd;
+
+    font-weight:600;
+
+}
+
+
+
+.sidebar ul li i{
+
+    width:25px;
+
+}
+
+
+
+/* ===========================================
+   MAIN CONTENT
+=========================================== */
+
+
+.main-content{
+
+    margin-left:260px;
+
+    min-height:100vh;
+
+}
+
+
+
+/* ===========================================
+   NAVBAR
+=========================================== */
+
+
+.top-navbar{
+
+    height:75px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.top-navbar h3{
+
+    color:#0d6efd;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+
+
+.top-navbar input{
+
+    width:280px;
+
+    border-radius:30px;
+
+}
+
+
+
+/* ===========================================
+   FORM CARD
+=========================================== */
+
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.card h4{
+
+    color:#0d6efd;
+
+    font-weight:700;
+
+}
+
+
+
+/* ===========================================
+   FORM ELEMENTS
+=========================================== */
+
+
+label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.form-control,
+.form-select{
+
+    height:48px;
+
+    border-radius:10px;
+
+}
+
+
+
+textarea.form-control{
+
+    height:auto;
+
+    resize:none;
+
+}
+
+
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:0 0 10px rgba(13,110,253,.25);
+
+}
+
+
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+
+.btn{
+
+    transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================================
+   SUMMARY CARDS
+=========================================== */
+
+.summary-card{
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.4s;
+
+}
+
+
+
+.summary-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+
+
+
+.summary-card i{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.summary-card h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.summary-card p{
+
+    font-size:18px;
+
+    margin:0;
+
+}
+
+
+
+/* ===========================================
+   DOCTOR TABLE
+=========================================== */
+
+
+.table-responsive{
+
+    overflow-x:auto;
+
+}
+
+
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+
+
+.table thead th{
+
+    text-align:center;
+
+    padding:15px;
+
+    font-weight:700;
+
+    vertical-align:middle;
+
+}
+
+
+
+.table tbody td{
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    padding:15px;
+
+}
+
+
+
+.table tbody tr{
+
+    transition:.3s;
+
+}
+
+
+
+.table tbody tr:hover{
+
+    background:#eef5ff;
+
+}
+
+
+
+/* ===========================================
+   DOCTOR IMAGE
+=========================================== */
+
+
+.doctor-photo{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid #0d6efd;
+
+}
+
+
+
+/* ===========================================
+   BADGES
+=========================================== */
+
+
+.badge{
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+/* ===========================================
+   ACTION BUTTONS
+=========================================== */
+
+
+.btn-sm{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    margin:2px;
+
+}
+
+
+
+.btn-info{
+
+    color:white;
+
+}
+
+
+
+.btn-info:hover{
+
+    transform:scale(1.1);
+
+    background:#0dcaf0;
+
+}
+
+
+
+.btn-warning:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+.btn-danger:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+/* ===========================================
+   EXPORT BUTTON
+=========================================== */
+
+
+.btn-success{
+
+    border-radius:10px;
+
+    padding:10px 20px;
+
+    font-weight:600;
+
+}
+
+
+
+/* ===========================================
+   ANIMATION
+=========================================== */
+
+
+.summary-card,
+.card,
+.table-responsive{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+@keyframes fadeUp{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.footer{
+
+    background:#0d6efd;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:40px;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+
+
+/* ===========================================
+   CUSTOM SCROLLBAR
+=========================================== */
+
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+    background:#eeeeee;
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#0d6efd;
+
+    border-radius:20px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#084298;
+
+}
+
+
+
+/* ===========================================
+   RESPONSIVE DESIGN
+=========================================== */
+
+
+@media(max-width:992px){
+
+
+.sidebar{
+
+    left:-260px;
+
+    transition:.4s;
+
+}
+
+
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+
+
+.main-content{
+
+    margin-left:0;
+
+}
+
+
+
+.top-navbar{
+
+    padding:15px;
+
+}
+
+
+
+.top-navbar input{
+
+    width:200px;
+
+}
+
+
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.top-navbar{
+
+    flex-direction:column;
+
+    height:auto;
+
+    gap:15px;
+
+}
+
+
+
+.top-navbar input{
+
+    width:100%;
+
+}
+
+
+
+.summary-card{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.table{
+
+    font-size:14px;
+
+}
+
+
+
+.doctor-photo{
+
+    width:50px;
+
+    height:50px;
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:576px){
+
+
+.logo h3{
+
+    font-size:20px;
+
+}
+
+
+
+.summary-card i{
+
+    font-size:32px;
+
+}
+
+
+
+.summary-card h2{
+
+    font-size:28px;
+
+}
+
+
+
+.btn-lg{
+
+    width:100%;
+
+    margin-bottom:10px;
+
+}
+
+
+
+}
+
+
+/* ===========================================
+   DARK MODE
+=========================================== */
+
+
+.dark-mode{
+
+    background:#121212;
+
+    color:white;
+
+}
+
+
+
+.dark-mode .card,
+.dark-mode .top-navbar{
+
+    background:#1f1f1f;
+
+    color:white;
+
+}
+
+
+
+.dark-mode .form-control,
+.dark-mode .form-select,
+.dark-mode textarea{
+
+    background:#2b2b2b;
+
+    color:white;
+
+    border-color:#555;
+
+}
+
+
+
+.dark-mode .table{
+
+    color:white;
+
+}
+
+
+
+.dark-mode .table tbody tr:hover{
+
+    background:#2c2c2c;
+
+}
+
+
+
+/* ===========================================
+   UTILITY CLASSES
+=========================================== */
+
+
+.shadow{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15)!important;
+
+}
+
+
+
+.rounded{
+
+    border-radius:20px!important;
+
+}
+
+
+
+.text-primary{
+
+    font-weight:600;
+
+}
+
+
+
+.container-fluid{
+
+    padding-left:25px;
+
+    padding-right:25px;
+
+}
+
+*{
+
+    transition:.2s ease;
+
+}
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-hospital"></i>
+
+        <h3>Hospital HMS</h3>
+
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="patients.html">
+                <i class="fa-solid fa-user"></i>
+                Patients
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="doctors.html">
+                <i class="fa-solid fa-user-doctor"></i>
+                Doctors
+            </a>
+        </li>
+
+        <li>
+            <a href="appointments.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Appointments
+            </a>
+        </li>
+
+        <li>
+            <a href="billing.html">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                Billing
+            </a>
+        </li>
+
+        <li>
+            <a href="profile.html">
+                <i class="fa-solid fa-user-circle"></i>
+                Profile
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<div class="main-content">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="top-navbar">
+
+    <h3>
+
+        Doctor Management
+
+    </h3>
+
+    <div>
+
+        <input
+            type="text"
+            id="searchDoctor"
+            class="form-control"
+            placeholder="Search Doctor">
+
+    </div>
+
+</nav>
+
+<!-- ================= PAGE TITLE ================= -->
+
+<div class="container-fluid mt-4">
+
+<h2>
+
+Doctor Registration
+
+</h2>
+
+<p>
+
+Manage doctors and hospital staff.
+
+</p>
+
+</div>
+
+<!-- ================= DOCTOR FORM ================= -->
+
+<div class="container-fluid">
+
+<div class="card p-4 shadow">
+
+<h4 class="mb-4">
+
+Add New Doctor
+
+</h4>
+
+<form id="doctorForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Doctor Name
+
+</label>
+
+<input
+type="text"
+id="doctorName"
+class="form-control"
+placeholder="Enter Doctor Name">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Department
+
+</label>
+
+<select
+id="department"
+class="form-select">
+
+<option>Cardiology</option>
+<option>Neurology</option>
+<option>Orthopedics</option>
+<option>Pediatrics</option>
+<option>General Medicine</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Qualification
+
+</label>
+
+<input
+type="text"
+id="qualification"
+class="form-control"
+placeholder="MBBS, MD, MS">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Experience
+
+</label>
+
+<input
+type="number"
+id="experience"
+class="form-control"
+placeholder="Years of Experience">
+
+</div>
+
+<!-- ================= DOCTOR FORM CONTINUED ================= -->
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Mobile Number
+
+</label>
+
+<input
+
+type="tel"
+
+id="doctorMobile"
+
+class="form-control"
+
+placeholder="Enter Mobile Number">
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Email Address
+
+</label>
+
+<input
+
+type="email"
+
+id="doctorEmail"
+
+class="form-control"
+
+placeholder="Enter Email Address">
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Salary
+
+</label>
+
+<input
+
+type="number"
+
+id="doctorSalary"
+
+class="form-control"
+
+placeholder="Enter Monthly Salary">
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Availability Time
+
+</label>
+
+<input
+
+type="text"
+
+id="availability"
+
+class="form-control"
+
+placeholder="Example: 10 AM - 5 PM">
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Doctor Photo
+
+</label>
+
+<input
+
+type="file"
+
+id="doctorPhoto"
+
+class="form-control"
+
+accept="image/*">
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Joining Date
+
+</label>
+
+<input
+
+type="date"
+
+id="joiningDate"
+
+class="form-control">
+
+</div>
+
+
+<div class="col-12 mb-3">
+
+<label>
+
+Address
+
+</label>
+
+
+<textarea
+
+id="doctorAddress"
+
+class="form-control"
+
+rows="4"
+
+placeholder="Enter Doctor Address">
+
+</textarea>
+
+
+</div>
+
+
+<div class="col-12 text-center mt-3">
+
+
+<button
+
+type="submit"
+
+class="btn btn-primary btn-lg me-3">
+
+
+<i class="fa-solid fa-user-plus"></i>
+
+
+Add Doctor
+
+
+</button>
+
+
+
+<button
+
+type="reset"
+
+class="btn btn-danger btn-lg">
+
+
+<i class="fa-solid fa-rotate-left"></i>
+
+
+Reset
+
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+<!-- ================= DOCTOR SUMMARY CARDS ================= -->
+
+<div class="container-fluid mt-5">
+
+<div class="row">
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="summary-card bg-primary">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+<h2 id="totalDoctors">
+
+45
+
+</h2>
+
+<p>
+
+Total Doctors
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="summary-card bg-success">
+
+<i class="fa-solid fa-user-check"></i>
+
+<h2>
+
+38
+
+</h2>
+
+<p>
+
+Available Doctors
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="summary-card bg-warning">
+
+<i class="fa-solid fa-stethoscope"></i>
+
+<h2>
+
+7
+
+</h2>
+
+<p>
+
+On Leave
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="summary-card bg-danger">
+
+<i class="fa-solid fa-hospital-user"></i>
+
+<h2>
+
+12
+
+</h2>
+
+<p>
+
+Departments
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ================= DOCTOR TABLE ================= -->
+
+
+<div class="container-fluid mt-5">
+
+
+<div class="card shadow p-4">
+
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+
+<h3>
+
+Doctor Records
+
+</h3>
+
+
+<button class="btn btn-success">
+
+
+<i class="fa-solid fa-download"></i>
+
+
+Export
+
+
+</button>
+
+
+</div>
+
+
+
+<div class="table-responsive">
+
+
+<table class="table table-bordered table-hover align-middle">
+
+
+<thead class="table-primary">
+
+
+<tr>
+
+<th>ID</th>
+
+<th>Photo</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Qualification</th>
+
+<th>Experience</th>
+
+<th>Mobile</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+
+<tr>
+
+
+<td>D001</td>
+
+
+<td>
+
+<img
+
+src="./assests/WhatsApp Image 2026-07-15 at 9.34.19 PM.jpeg"
+
+class="doctor-photo">
+
+
+</td>
+
+
+<td>
+
+Dr. SAIKIRAN
+
+</td>
+
+
+<td>
+
+Cardiology
+
+</td>
+
+
+<td>
+
+MBBS MD
+
+</td>
+
+
+<td>
+
+10 Years
+
+</td>
+
+
+<td>
+
+8897659556
+
+</td>
+
+
+<td>
+
+<span class="badge bg-success">
+
+Available
+
+</span>
+
+</td>
+
+
+<td>
+
+
+<button class="btn btn-info btn-sm">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+
+<button class="btn btn-warning btn-sm">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+
+<button class="btn btn-danger btn-sm">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+
+<td>D002</td>
+
+
+<td>
+
+<img
+
+src="./assests/WhatsApp Image 2026-07-15 at 9.34.20 PM (1).jpeg"
+
+class="doctor-photo">
+
+
+</td>
+
+
+<td>
+
+Dr. RAJESHWAR
+
+</td>
+
+
+<td>
+
+Neurology
+
+</td>
+
+
+<td>
+
+MBBS MS
+
+</td>
+
+
+<td>
+
+8 Years
+
+</td>
+
+
+<td>
+
+9440459325
+
+</td>
+
+
+<td>
+
+
+<span class="badge bg-warning">
+
+Leave
+
+</span>
+
+
+</td>
+
+
+<td>
+
+
+<button class="btn btn-info btn-sm">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+
+<button class="btn btn-warning btn-sm">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+
+<button class="btn btn-danger btn-sm">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer class="footer mt-5">
+
+
+<p>
+
+© 2026 Hospital Management System
+
+</p>
+
+
+</footer>
+
+
+
+<!-- BOOTSTRAP JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- DOCTORS JS -->
+
+<script>
+    
+// ==========================================
+// Hospital Management System
+// Doctors Module JavaScript
+// ==========================================
+
+
+console.log("Doctors Module Loaded Successfully");
+
+
+// ==========================================
+// DOCTOR ARRAY
+// ==========================================
+
+let doctors = [];
+
+
+// ==========================================
+// FORM SUBMIT
+// ==========================================
+
+const doctorForm = document.getElementById("doctorForm");
+
+
+doctorForm.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    addDoctor();
+
+});
+
+
+
+// ==========================================
+// ADD DOCTOR
+// ==========================================
+
+function addDoctor(){
+
+
+    let name =
+    document.getElementById("doctorName").value;
+
+
+    let department =
+    document.getElementById("department").value;
+
+
+    let qualification =
+    document.getElementById("qualification").value;
+
+
+    let experience =
+    document.getElementById("experience").value;
+
+
+    let mobile =
+    document.getElementById("doctorMobile").value;
+
+
+    let email =
+    document.getElementById("doctorEmail").value;
+
+
+    let salary =
+    document.getElementById("doctorSalary").value;
+
+
+    let availability =
+    document.getElementById("availability").value;
+
+
+    let joining =
+    document.getElementById("joiningDate").value;
+
+
+    let address =
+    document.getElementById("doctorAddress").value;
+
+
+
+    if(name=="" || mobile==""){
+
+
+        alert("Please enter required details");
+
+
+        return;
+
+
+    }
+
+
+
+    let doctor = {
+
+
+        id:"D"+
+
+        (doctors.length+1)
+
+        .toString()
+
+        .padStart(3,"0"),
+
+
+        name:name,
+
+
+        department:department,
+
+
+        qualification:qualification,
+
+
+        experience:experience,
+
+
+        mobile:mobile,
+
+
+        email:email,
+
+
+        salary:salary,
+
+
+        availability:availability,
+
+
+        joining:joining,
+
+
+        address:address,
+
+
+        status:"Available"
+
+
+    };
+
+
+
+    doctors.push(doctor);
+
+
+
+    saveDoctors();
+
+
+    displayDoctors();
+
+
+    updateDoctorCount();
+
+
+
+    doctorForm.reset();
+
+
+
+    alert("Doctor Added Successfully");
+
+
+}
+
+
+
+
+// ==========================================
+// SAVE DATA
+// ==========================================
+
+function saveDoctors(){
+
+
+    localStorage.setItem(
+
+        "doctors",
+
+        JSON.stringify(doctors)
+
+    );
+
+
+}
+
+
+
+
+// ==========================================
+// LOAD DATA
+// ==========================================
+
+function loadDoctors(){
+
+
+    let data =
+
+    localStorage.getItem("doctors");
+
+
+
+    if(data){
+
+
+        doctors = JSON.parse(data);
+
+
+
+        displayDoctors();
+
+
+
+        updateDoctorCount();
+
+
+    }
+
+
+
+}
+
+
+
+loadDoctors();
+
+
+
+
+// ==========================================
+// DISPLAY DOCTORS
+// ==========================================
+
+function displayDoctors(){
+
+
+    let tbody =
+
+    document.querySelector("tbody");
+
+
+
+    tbody.innerHTML="";
+
+
+
+    doctors.forEach(function(doctor,index){
+
+
+
+        tbody.innerHTML += `
+
+
+
+<tr>
+
+
+<td>
+
+${doctor.id}
+
+</td>
+
+
+
+<td>
+
+<img
+
+src="https://i.pravatar.cc/60?img=${index+20}"
+
+class="doctor-photo">
+
+
+</td>
+
+
+
+<td>
+
+${doctor.name}
+
+</td>
+
+
+
+<td>
+
+${doctor.department}
+
+</td>
+
+
+
+<td>
+
+${doctor.qualification}
+
+</td>
+
+
+
+<td>
+
+${doctor.experience} Years
+
+</td>
+
+
+
+<td>
+
+${doctor.mobile}
+
+</td>
+
+
+
+<td>
+
+
+<span class="badge bg-success">
+
+${doctor.status}
+
+</span>
+
+
+</td>
+
+
+
+<td>
+
+
+
+<button
+
+class="btn btn-info btn-sm"
+
+onclick="viewDoctor(${index})">
+
+
+<i class="fa-solid fa-eye"></i>
+
+
+</button>
+
+
+
+
+<button
+
+class="btn btn-warning btn-sm"
+
+onclick="editDoctor(${index})">
+
+
+<i class="fa-solid fa-pen"></i>
+
+
+</button>
+
+
+
+
+<button
+
+class="btn btn-danger btn-sm"
+
+onclick="deleteDoctor(${index})">
+
+
+<i class="fa-solid fa-trash"></i>
+
+
+</button>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+`;
+
+
+
+    });
+
+
+
+}
+
+
+
+
+// ==========================================
+// UPDATE DOCTOR COUNT
+// ==========================================
+
+function updateDoctorCount(){
+
+
+
+let count = document.getElementById("totalDoctors");
+
+
+
+if(count){
+
+
+    count.innerHTML = doctors.length;
+
+
+}
+
+
+
+}
+
+
+
+console.log("Doctors.js Part 1 Loaded");
+
+// ==========================================
+// VIEW DOCTOR DETAILS
+// ==========================================
+
+function viewDoctor(index){
+
+
+    let doctor = doctors[index];
+
+
+    alert(
+
+        "Doctor Details\n\n" +
+
+        "ID : " + doctor.id + "\n" +
+
+        "Name : " + doctor.name + "\n" +
+
+        "Department : " + doctor.department + "\n" +
+
+        "Qualification : " + doctor.qualification + "\n" +
+
+        "Experience : " + doctor.experience + " Years\n" +
+
+        "Mobile : " + doctor.mobile + "\n" +
+
+        "Email : " + doctor.email + "\n" +
+
+        "Salary : " + doctor.salary + "\n" +
+
+        "Availability : " + doctor.availability + "\n" +
+
+        "Joining Date : " + doctor.joining + "\n" +
+
+        "Status : " + doctor.status
+
+    );
+
+
+}
+
+
+
+
+// ==========================================
+// EDIT DOCTOR
+// ==========================================
+
+function editDoctor(index){
+
+
+    let doctor = doctors[index];
+
+
+    document.getElementById("doctorName").value =
+    doctor.name;
+
+
+    document.getElementById("department").value =
+    doctor.department;
+
+
+    document.getElementById("qualification").value =
+    doctor.qualification;
+
+
+    document.getElementById("experience").value =
+    doctor.experience;
+
+
+    document.getElementById("doctorMobile").value =
+    doctor.mobile;
+
+
+    document.getElementById("doctorEmail").value =
+    doctor.email;
+
+
+    document.getElementById("doctorSalary").value =
+    doctor.salary;
+
+
+    document.getElementById("availability").value =
+    doctor.availability;
+
+
+    document.getElementById("joiningDate").value =
+    doctor.joining;
+
+
+    document.getElementById("doctorAddress").value =
+    doctor.address;
+
+
+
+    doctors.splice(index,1);
+
+
+
+    saveDoctors();
+
+
+
+    displayDoctors();
+
+
+
+    updateDoctorCount();
+
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+
+}
+
+
+
+
+// ==========================================
+// DELETE DOCTOR
+// ==========================================
+
+function deleteDoctor(index){
+
+
+
+    let confirmDelete = confirm(
+
+        "Are you sure you want to delete this doctor?"
+
+    );
+
+
+
+    if(confirmDelete){
+
+
+        doctors.splice(index,1);
+
+
+
+        saveDoctors();
+
+
+
+        displayDoctors();
+
+
+
+        updateDoctorCount();
+
+
+
+        alert(
+
+            "Doctor Deleted Successfully"
+
+        );
+
+
+    }
+
+
+}
+
+
+
+
+// ==========================================
+// SEARCH DOCTOR
+// ==========================================
+
+
+const searchDoctor = 
+
+document.getElementById("searchDoctor");
+
+
+
+if(searchDoctor){
+
+
+searchDoctor.addEventListener(
+
+"keyup",
+
+function(){
+
+
+    let value =
+
+    this.value.toLowerCase();
+
+
+
+    let rows =
+
+    document.querySelectorAll("tbody tr");
+
+
+
+    rows.forEach(function(row){
+
+
+
+        if(
+
+        row.innerText
+
+        .toLowerCase()
+
+        .includes(value)
+
+        ){
+
+
+            row.style.display="";
+
+
+        }
+
+        else{
+
+
+            row.style.display="none";
+
+
+        }
+
+
+
+    });
+
+
+
+});
+
+
+}
+
+
+
+
+// ==========================================
+// EXPORT BUTTON
+// ==========================================
+
+
+const exportButton =
+
+document.querySelector(".btn-success");
+
+
+
+if(exportButton){
+
+
+exportButton.addEventListener(
+
+"click",
+
+function(){
+
+
+
+    alert(
+
+    "Doctor data export will be connected with backend API."
+
+    );
+
+
+
+});
+
+
+}
+
+
+
+
+// ==========================================
+// DOCTOR IMAGE PREVIEW
+// ==========================================
+
+
+const doctorPhoto =
+
+document.getElementById("doctorPhoto");
+
+
+
+if(doctorPhoto){
+
+
+doctorPhoto.addEventListener(
+
+"change",
+
+function(){
+
+
+    if(this.files.length>0){
+
+
+        alert(
+
+        "Selected Image : "
+
+        +
+
+        this.files[0].name
+
+        );
+
+
+    }
+
+
+});
+
+
+}
+
+
+
+
+// ==========================================
+// SIDEBAR TOGGLE MOBILE
+// ==========================================
+
+
+const menuBtn =
+
+document.getElementById("menuBtn");
+
+
+const sidebar =
+
+document.querySelector(".sidebar");
+
+
+
+if(menuBtn){
+
+
+menuBtn.addEventListener(
+
+"click",
+
+function(){
+
+
+sidebar.classList.toggle("active");
+
+
+});
+
+
+}
+
+
+
+
+// ==========================================
+// PAGE LOAD
+// ==========================================
+
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+
+console.log(
+
+"Doctors Page Ready"
+
+);
+
+
+});
+
+
+
+
+// ==========================================
+// MODULE COMPLETE
+// ==========================================
+
+
+console.log(
+
+"Doctors.js Fully Loaded Successfully"
+
+);
+</script>
+
+
+</body>
+
+
+</html>

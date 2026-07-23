@@ -1,0 +1,1416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <style>
+      /* ===========================================
+   GOOGLE FONT
+=========================================== */
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+      /* ===========================================
+   GLOBAL
+=========================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f8f9fa;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      /* ===========================================
+   NAVBAR
+=========================================== */
+
+      .navbar {
+        transition: 0.5s;
+        padding: 15px 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .navbar-brand i {
+        color: #ffd43b;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        margin-left: 20px;
+        font-weight: 500;
+        transition: 0.4s;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ffd43b !important;
+      }
+
+      .navbar .btn {
+        border-radius: 30px;
+        padding: 10px 25px;
+        font-weight: bold;
+      }
+
+      /* ===========================================
+   HERO
+=========================================== */
+
+      .hero {
+        padding: 100px 0;
+
+        background: linear-gradient(135deg, #e3f2fd, #ffffff);
+      }
+
+      .hero h1 {
+        line-height: 70px;
+      }
+
+      .hero p {
+        font-size: 20px;
+
+        color: #555;
+      }
+
+      .hero img {
+        border-radius: 20px;
+
+        transition: 0.5s;
+
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero img:hover {
+        transform: scale(1.05);
+      }
+
+      .hero .btn {
+        margin-right: 15px;
+
+        border-radius: 40px;
+
+        padding: 12px 30px;
+      }
+
+      /* ===========================================
+   FEATURE CARD
+=========================================== */
+
+      .feature-card {
+        background: white;
+
+        border-radius: 20px;
+
+        padding: 35px;
+
+        margin-top: 20px;
+
+        transition: 0.4s;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .feature-card i {
+        transition: 0.4s;
+      }
+
+      .feature-card:hover i {
+        transform: rotate(360deg);
+      }
+
+      .feature-card h4 {
+        margin-top: 20px;
+
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        color: #666;
+      }
+
+      /* ===========================================
+   ABOUT
+=========================================== */
+
+      #about {
+        padding: 80px 0;
+      }
+
+      #about img {
+        border-radius: 20px;
+
+        transition: 0.5s;
+      }
+
+      #about img:hover {
+        transform: scale(1.03);
+      }
+
+      #about h2 {
+        font-size: 40px;
+
+        margin-bottom: 25px;
+      }
+
+      #about p {
+        line-height: 35px;
+
+        color: #555;
+      }
+
+      #about ul {
+        margin-top: 20px;
+      }
+
+      #about ul li {
+        list-style: none;
+
+        padding: 10px 0;
+
+        font-size: 18px;
+      }
+
+      /* ===========================================
+   SERVICES
+=========================================== */
+
+      #services {
+        padding: 80px 0;
+      }
+
+      .service-card {
+        background: white;
+
+        border-radius: 20px;
+
+        padding: 35px;
+
+        text-align: center;
+
+        transition: 0.4s;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-15px);
+
+        background: #0d6efd;
+
+        color: white;
+      }
+
+      .service-card:hover i {
+        color: white !important;
+      }
+
+      .service-card h4 {
+        margin-top: 20px;
+
+        font-weight: 600;
+      }
+
+      .service-card p {
+        margin-top: 15px;
+      }
+      /* ===========================================
+   DOCTORS SECTION
+=========================================== */
+
+      #doctors {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .doctor-card {
+        background: #fff;
+        border-radius: 20px;
+        text-align: center;
+        padding: 30px;
+        transition: 0.4s;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+      }
+
+      .doctor-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .doctor-card img {
+        width: 170px;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid #0d6efd;
+        transition: 0.4s;
+      }
+
+      .doctor-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .doctor-card h4 {
+        margin-top: 20px;
+        color: #0d6efd;
+        font-weight: 700;
+      }
+
+      .doctor-card p {
+        color: #666;
+        font-size: 17px;
+      }
+
+      /* ===========================================
+   STATISTICS
+=========================================== */
+
+      .statistics {
+        padding: 80px 0;
+        background: #0d6efd;
+        color: white;
+      }
+
+      .statistics h1 {
+        font-size: 60px;
+        font-weight: bold;
+      }
+
+      .statistics h5 {
+        margin-top: 15px;
+        font-size: 22px;
+      }
+
+      .statistics .col-md-3 {
+        padding: 30px;
+      }
+
+      /* ===========================================
+   REVIEW SECTION
+=========================================== */
+
+      .review-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        transition: 0.4s;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .review-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .review-card h4 {
+        color: orange;
+        font-size: 30px;
+      }
+
+      .review-card p {
+        color: #555;
+        margin-top: 15px;
+      }
+
+      .review-card h5 {
+        margin-top: 20px;
+        color: #0d6efd;
+      }
+
+      /* ===========================================
+   GALLERY
+=========================================== */
+
+      .gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: 0.4s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ===========================================
+   CONTACT
+=========================================== */
+
+      #contact {
+        padding: 80px 0;
+      }
+
+      #contact h4 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+      }
+
+      #contact p {
+        color: #555;
+        line-height: 35px;
+      }
+
+      #contact input,
+      #contact textarea {
+        border-radius: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        transition: 0.4s;
+      }
+
+      #contact input:focus,
+      #contact textarea:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+        outline: none;
+      }
+
+      #contact button {
+        padding: 12px 35px;
+        border-radius: 30px;
+        transition: 0.4s;
+      }
+
+      #contact button:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ===========================================
+   BUTTONS
+=========================================== */
+
+      .btn-primary {
+        transition: 0.4s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      .btn-warning {
+        transition: 0.4s;
+      }
+
+      .btn-warning:hover {
+        transform: scale(1.05);
+      }
+
+      .btn-outline-primary:hover {
+        color: white;
+      }
+      /* ===========================================
+   FOOTER
+=========================================== */
+
+      footer {
+        background: #0d6efd;
+        color: white;
+      }
+
+      footer h3,
+      footer h4 {
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      footer p {
+        color: #f1f1f1;
+        line-height: 30px;
+      }
+
+      footer ul {
+        padding: 0;
+      }
+
+      footer ul li {
+        list-style: none;
+        margin-bottom: 12px;
+      }
+
+      footer ul li a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      footer ul li a:hover {
+        color: #ffd43b;
+        padding-left: 10px;
+      }
+
+      footer i {
+        margin-right: 15px;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+
+      footer i:hover {
+        transform: translateY(-5px) scale(1.2);
+        color: #ffd43b;
+      }
+
+      footer hr {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* ===========================================
+   BACK TO TOP BUTTON
+=========================================== */
+
+      #topBtn {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+
+        width: 50px;
+        height: 50px;
+
+        border: none;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 22px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+        cursor: pointer;
+
+        transition: 0.4s;
+
+        z-index: 1000;
+      }
+
+      #topBtn:hover {
+        transform: translateY(-8px);
+      }
+
+      /* ===========================================
+   SECTION TITLES
+=========================================== */
+
+      section h2 {
+        font-weight: 700;
+
+        margin-bottom: 20px;
+      }
+
+      section p {
+        color: #666;
+      }
+
+      /* ===========================================
+   IMAGES
+=========================================== */
+
+      img {
+        transition: 0.4s;
+      }
+
+      img:hover {
+        transform: scale(1.02);
+      }
+
+      /* ===========================================
+   SHADOWS
+=========================================== */
+
+      .shadow-lg {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .shadow {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      /* ===========================================
+   SCROLLBAR
+=========================================== */
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #e9ecef;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #0d6efd;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #084298;
+      }
+
+      /* ===========================================
+   ANIMATIONS
+=========================================== */
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero,
+      .feature-card,
+      .service-card,
+      .doctor-card,
+      .review-card {
+        animation: fadeUp 1s ease;
+      }
+
+      /* ===========================================
+   RESPONSIVE DESIGN
+=========================================== */
+
+      @media (max-width: 992px) {
+        .hero {
+          padding: 60px 20px;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 38px;
+          line-height: 50px;
+        }
+
+        .hero img {
+          margin-top: 40px;
+        }
+
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .navbar .btn {
+          margin-top: 15px;
+        }
+
+        #doctors,
+        #services,
+        #about,
+        #contact {
+          padding: 50px 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .feature-card,
+        .service-card,
+        .doctor-card,
+        .review-card {
+          margin-bottom: 25px;
+        }
+
+        .statistics h1 {
+          font-size: 40px;
+        }
+
+        .statistics h5 {
+          font-size: 18px;
+        }
+
+        footer {
+          text-align: center;
+        }
+
+        footer i {
+          margin-top: 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 30px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        #topBtn {
+          right: 15px;
+          bottom: 15px;
+
+          width: 45px;
+          height: 45px;
+
+          font-size: 18px;
+        }
+
+        .navbar-brand {
+          font-size: 22px;
+        }
+      }
+
+      /* ===========================================
+   UTILITIES
+=========================================== */
+
+      .text-primary {
+        font-weight: 600;
+      }
+
+      .rounded {
+        border-radius: 15px !important;
+      }
+
+      .container {
+        max-width: 1200px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--==================== NAVBAR ====================-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <i class="fa-solid fa-hospital"></i>
+          Hospital Management
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#doctors">Doctors</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="login.html" class="btn btn-warning ms-3"> Login </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--================ HERO =================-->
+
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold">Welcome To</h1>
+
+            <h1 class="display-3 text-primary fw-bold">
+              Hospital Management System
+            </h1>
+
+            <p class="lead mt-4">
+              Our Hospital Management System helps hospitals manage patients,
+              doctors, appointments, billing, medical records and administration
+              efficiently.
+            </p>
+
+            <a href="login.html" class="btn btn-primary btn-lg mt-3">
+              Get Started
+            </a>
+
+            <a href="#about" class="btn btn-outline-primary btn-lg mt-3">
+              Learn More
+            </a>
+          </div>
+
+          <div class="col-lg-6 text-center">
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700"
+              class="img-fluid rounded shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== FEATURES ===============-->
+
+    <section class="container my-5">
+      <div class="row text-center">
+        <div class="col-md-3">
+          <div class="feature-card">
+            <i class="fa-solid fa-user-doctor fa-3x text-primary"></i>
+
+            <h4 class="mt-3">Expert Doctors</h4>
+
+            <p>Experienced specialists available for every department.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="feature-card">
+            <i class="fa-solid fa-bed fa-3x text-success"></i>
+
+            <h4 class="mt-3">500+ Beds</h4>
+
+            <p>Modern infrastructure with advanced patient care.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="feature-card">
+            <i class="fa-solid fa-truck-medical fa-3x text-danger"></i>
+
+            <h4 class="mt-3">Emergency</h4>
+
+            <p>24×7 Ambulance & Emergency Services.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="feature-card">
+            <i class="fa-solid fa-heart-pulse fa-3x text-warning"></i>
+
+            <h4 class="mt-3">Patient Care</h4>
+
+            <p>Dedicated patient support and healthcare.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== ABOUT ===============-->
+
+    <section id="about" class="container py-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <img
+            src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+
+        <div class="col-lg-6">
+          <h2 class="text-primary">About Our Hospital</h2>
+
+          <p class="mt-4">
+            We provide world-class healthcare facilities with experienced
+            doctors, digital patient management, online appointments, laboratory
+            services, pharmacy, emergency support and cashless insurance.
+          </p>
+
+          <ul>
+            <li>✔ Digital Patient Records</li>
+
+            <li>✔ Online Appointment Booking</li>
+
+            <li>✔ Laboratory Management</li>
+
+            <li>✔ Pharmacy Services</li>
+
+            <li>✔ Cashless Insurance</li>
+
+            <li>✔ 24/7 Emergency</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services" class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Our Services</h2>
+
+        <p>Quality Healthcare Services with Modern Technology</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-user-doctor fa-4x text-primary"></i>
+
+            <h4 class="mt-3">General Physician</h4>
+
+            <p>
+              Expert physicians providing complete health checkups and
+              consultations.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-heart-pulse fa-4x text-danger"></i>
+
+            <h4 class="mt-3">Cardiology</h4>
+
+            <p>
+              Complete heart care with experienced cardiologists and modern
+              equipment.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-brain fa-4x text-warning"></i>
+
+            <h4 class="mt-3">Neurology</h4>
+
+            <p>Advanced neurological diagnosis and treatment facilities.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-stethoscope fa-4x text-success"></i>
+
+            <h4 class="mt-3">Health Checkup</h4>
+
+            <p>Affordable health packages for all age groups.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-syringe fa-4x text-info"></i>
+
+            <h4 class="mt-3">Vaccination</h4>
+
+            <p>Safe and certified vaccination for children and adults.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card">
+            <i class="fa-solid fa-truck-medical fa-4x text-danger"></i>
+
+            <h4 class="mt-3">Emergency</h4>
+
+            <p>Emergency ambulance and ICU services available 24×7.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DOCTORS ================= -->
+
+    <section id="doctors" class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="text-primary fw-bold">Meet Our Doctors</h2>
+
+        <p>Highly Qualified Medical Professionals</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="doctor-card">
+            <img
+              src="./assests/WhatsApp Image 2026-07-15 at 9.34.19 PM.jpeg"
+              class="img-fluid rounded-circle"
+            />
+
+            <h4 class="mt-3">Dr.SAIKIRAN</h4>
+
+            <p>Cardiologist</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="doctor-card">
+            <img
+              src="./assests/WhatsApp Image 2026-07-15 at 9.34.20 PM (1).jpeg"
+              class="img-fluid rounded-circle"
+            />
+
+            <h4 class="mt-3">Dr.SAITEJA & ELKA</h4>
+
+            <p>Neurologist</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="doctor-card">
+            <img
+              src="./assests/WhatsApp Image 2026-07-15 at 9.34.20 PM (2).jpeg"
+              class="img-fluid rounded-circle"
+            />
+
+            <h4 class="mt-3">Dr.BHUVAN CHADRA Reddy</h4>
+
+            <p>Orthopedic</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="doctor-card">
+            <img
+              src="./assests/WhatsApp Image 2026-07-15 at 9.34.20 PM.jpeg"
+              class="img-fluid rounded-circle"
+            />
+
+            <h4 class="mt-3">Dr.VINOD & TEJA</h4>
+
+            <p>Pediatrician</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="container py-5">
+      <div class="row text-center">
+        <div class="col-md-3">
+          <h1 class="text-primary">500+</h1>
+
+          <h5>Doctors</h5>
+        </div>
+
+        <div class="col-md-3">
+          <h1 class="text-success">10K+</h1>
+
+          <h5>Patients</h5>
+        </div>
+
+        <div class="col-md-3">
+          <h1 class="text-danger">150+</h1>
+
+          <h5>Awards</h5>
+        </div>
+
+        <div class="col-md-3">
+          <h1 class="text-warning">24×7</h1>
+
+          <h5>Emergency</h5>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIAL ================= -->
+
+    <section class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="text-primary">Patient Reviews</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="review-card">
+            <h4>★★★★★</h4>
+
+            <p>Excellent doctors and caring staff.</p>
+
+            <h5>- Sai Krishna</h5>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="review-card">
+            <h4>★★★★★</h4>
+
+            <p>Clean hospital with advanced facilities.</p>
+
+            <h5>- Tanuja</h5>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="review-card">
+            <h4>★★★★★</h4>
+
+            <p>Best emergency service available anytime.</p>
+
+            <h5>-Betha Kalyan</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= GALLERY ================= -->
+
+    <section class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Hospital Gallery</h2>
+
+        <p>Explore Our Modern Infrastructure</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <img
+            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <img
+            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <img
+            src="https://images.unsplash.com/photo-1580281657527-47b8c4f4f31c?w=600"
+            class="img-fluid rounded shadow"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Contact Us</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>
+            Hospital Address:Khanapur Town and Mandal in the Nirmal district is
+            Khanapur, Nirmal District, Telangana, Pin Code: 504203
+          </h4>
+
+          <p>Hyderabad, Telangana</p>
+
+          <p>📞 +91 8897659556</p>
+
+          <p>✉ devendhar reddy@gmail.com</p>
+
+          <p>🕒 24 × 7 Emergency Available</p>
+        </div>
+
+        <div class="col-lg-6">
+          <form>
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Your Name"
+            />
+
+            <input
+              type="email"
+              class="form-control mb-3"
+              placeholder="Your Email"
+            />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Subject"
+            />
+
+            <textarea
+              class="form-control mb-3"
+              rows="5"
+              placeholder="Message"
+            ></textarea>
+
+            <button class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="bg-primary text-white mt-5">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-lg-4">
+            <h3>Hospital Management</h3>
+
+            <p>Complete Healthcare Solution</p>
+          </div>
+
+          <div class="col-lg-4">
+            <h4>Quick Links</h4>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#about" class="text-white text-decoration-none">
+                  About</a
+                >
+              </li>
+
+              <li>
+                <a href="#services" class="text-white text-decoration-none">
+                  Services</a
+                >
+              </li>
+
+              <li>
+                <a href="#doctors" class="text-white text-decoration-none">
+                  Doctors</a
+                >
+              </li>
+
+              <li>
+                <a href="login.html" class="text-white text-decoration-none">
+                  Login</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h4>Follow Us</h4>
+
+            <i class="fab fa-facebook fa-2x me-3"></i>
+
+            <i class="fab fa-instagram fa-2x me-3"></i>
+
+            <i class="fab fa-twitter fa-2x me-3"></i>
+
+            <i class="fab fa-linkedin fa-2x"></i>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="text-center pb-3">
+          © 2026 Hospital Management System | All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= BACK TO TOP ================= -->
+
+    <button id="topBtn" class="btn btn-primary">↑</button>
+
+    <!-- Bootstrap JS -->
+
+    <script>
+      // ==========================================
+      // Hospital Management System
+      // index.js
+      // ==========================================
+
+      // Welcome Message
+      window.onload = function () {
+        console.log("Hospital Management System Loaded Successfully");
+      };
+
+      // ==========================================
+      // Back To Top Button
+      // ==========================================
+
+      const topBtn = document.getElementById("topBtn");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      });
+
+      topBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // ==========================================
+      // Navbar Color Change
+      // ==========================================
+
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 100) {
+          navbar.style.background = "#0d6efd";
+
+          navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,.2)";
+        } else {
+          navbar.style.background = "";
+        }
+      });
+
+      // ==========================================
+      // Counter Animation
+      // ==========================================
+
+      const counters = document.querySelectorAll("h1");
+
+      counters.forEach((counter) => {
+        const updateCounter = () => {
+          const target = +counter.innerText.replace(/\D/g, "");
+
+          if (!target) return;
+
+          let count = 0;
+
+          const speed = target / 100;
+
+          const interval = setInterval(() => {
+            count += speed;
+
+            if (count >= target) {
+              counter.innerText = target + "+";
+
+              clearInterval(interval);
+            } else {
+              counter.innerText = Math.floor(count);
+            }
+          }, 20);
+        };
+
+        updateCounter();
+      });
+
+      // ==========================================
+      // Contact Form
+      // ==========================================
+
+      const form = document.querySelector("form");
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          alert("Message Sent Successfully!");
+
+          form.reset();
+        });
+      }
+
+      // ==========================================
+      // Gallery Hover
+      // ==========================================
+
+      const images = document.querySelectorAll(".gallery img");
+
+      images.forEach((img) => {
+        img.addEventListener("mouseenter", function () {
+          img.style.transform = "scale(1.05)";
+        });
+
+        img.addEventListener("mouseleave", function () {
+          img.style.transform = "scale(1)";
+        });
+      });
+
+      // ==========================================
+      // Doctor Card Animation
+      // ==========================================
+
+      const doctors = document.querySelectorAll(".doctor-card");
+
+      doctors.forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          card.style.background = "#0d6efd";
+
+          card.style.color = "#fff";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          card.style.background = "#fff";
+
+          card.style.color = "#000";
+        });
+      });
+
+      // ==========================================
+      // Service Card Animation
+      // ==========================================
+
+      const services = document.querySelectorAll(".service-card");
+
+      services.forEach((service) => {
+        service.addEventListener("click", function () {
+          alert("Service Details Coming Soon");
+        });
+      });
+
+      // ==========================================
+      // Footer Year
+      // ==========================================
+
+      const year = new Date().getFullYear();
+
+      const footer = document.querySelector("footer .text-center");
+
+      if (footer) {
+        footer.innerHTML = `© ${year} Hospital Management System | All Rights Reserved`;
+      }
+
+      console.log("index.js Loaded Successfully");
+    </script>
+  </body>
+</html>
